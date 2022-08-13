@@ -1,4 +1,5 @@
-﻿int a, b;
+﻿//Задача №2
+int a, b;
 Console.WriteLine("Введите число");
 a = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите число");
@@ -15,7 +16,7 @@ Console.ReadLine();
 
 
 
-
+//Задача №4
 int a, b, c;
 Console.WriteLine("Введите число");
 a = Convert.ToInt32(Console.ReadLine());
@@ -42,7 +43,7 @@ Console.ReadLine();
 
 
 
-
+//Задача №6
 int n;
 Console.WriteLine("Введите число");
 n = int.Parse(Console.ReadLine());
