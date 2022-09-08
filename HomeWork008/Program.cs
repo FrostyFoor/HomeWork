@@ -1,194 +1,161 @@
-﻿Console.WriteLine($"\nВведите размер массива m x n и диапазон случайных значений:");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-int range = InputNumbers("Введите диапазон: от 1 до ");
+﻿/*Console.WriteLine("введите количество строк");
+int linesVol = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("введите количество столбцов");
+int columnsVol = Convert.ToInt32(Console.ReadLine());
+int[,] numbers = new int[linesVol, columnsVol];
+FillArrayRandomNumbers(numbers);
+Console.WriteLine();
+Console.WriteLine("Массив до изменения");
+PrintArray(numbers);
 
-int[,] array = new int[m, n];
-CreateArray(array);
-WriteArray(array);
-
-Console.WriteLine($"\nОтсортированный массив: ");
-OrderArrayLines(array);
-WriteArray(array);
-
-void OrderArrayLines(int[,] array)
+for (int i = 0; i < numbers.GetLength(0); i++)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int j = 0; j < numbers.GetLength(1) - 1; j++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int z = 0; z < numbers.GetLength(1) - 1; z++)
         {
-            for (int k = 0; k < array.GetLength(1) - 1; k++)
+            if (numbers[i, z] < numbers[i, z + 1])
             {
-                if (array[i, k] < array[i, k + 1])
-                {
-                    int temp = array[i, k + 1];
-                    array[i, k + 1] = array[i, k];
-                    array[i, k] = temp;
-                }
+                int temp = 0;
+                temp = numbers[i, z];
+                numbers[i, z] = numbers[i, z + 1];
+                numbers[i, z + 1] = temp;
             }
         }
     }
 }
+Console.WriteLine();
+Console.WriteLine("Массив с упорядоченными значениями");
+PrintArray(numbers);
 
-int InputNumbers(string input)
-{
-    Console.Write(input);
-    int output = Convert.ToInt32(Console.ReadLine());
-    return output;
-}
-
-void CreateArray(int[,] array)
+void FillArrayRandomNumbers(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(range);
+            array[i, j] = new Random().Next(0, 10);
         }
     }
 }
 
-void WriteArray(int[,] array)
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
+        Console.Write("[ ");
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write(array[i, j] + " ");
         }
-        Console.WriteLine();
+        Console.Write("]");
+        Console.WriteLine("");
     }
-}
+}*/
 
 
-Console.WriteLine($"\nВведите размер массива m x n и диапазон случайных значений:");
-int m = InputNumbers("Введите m: ");
-int n = InputNumbers("Введите n: ");
-int range = InputNumbers("Введите диапазон: от 1 до ");
-
-int[,] array = new int[m, n];
-CreateArray(array);
-WriteArray(array);
-
-int minSumLine = 0;
-int sumLine = SumLineElements(array, 0);
-for (int i = 1; i < array.GetLength(0); i++)
+/*int[,] table = new int[4, 4];
+FillArrayRandom(table);
+PrintArray(table);
+Console.WriteLine();
+NumberRowMinSumElements(table);
+void NumberRowMinSumElements(int[,] array)
 {
-    int tempSumLine = SumLineElements(array, i);
-    if (sumLine > tempSumLine)
+    int minRow = 0;
+    int minSumRow = 0;
+    int sumRow = 0;
+    for (int i = 0; i < table.GetLength(1); i++)
     {
-        sumLine = tempSumLine;
-        minSumLine = i;
+        minRow += table[0, i];
     }
-}
-
-Console.WriteLine($"\n{minSumLine + 1} - строкa с наименьшей суммой ({sumLine}) элементов ");
-
-int SumLineElements(int[,] array, int i)
-{
-    int sumLine = array[i, 0];
-    for (int j = 1; j < array.GetLength(1); j++)
+    for (int i = 0; i < table.GetLength(0); i++)
     {
-        sumLine += array[i, j];
+        for (int j = 0; j < table.GetLength(1); j++) sumRow += table[i, j];
+        if (sumRow < minRow)
+        {
+            minRow = sumRow;
+            minSumRow = i;
+        }
+        sumRow = 0;
     }
-    return sumLine;
+    Console.Write($"{minSumRow + 1} строка");
 }
-
-int InputNumbers(string input)
-{
-    Console.Write(input);
-    int output = Convert.ToInt32(Console.ReadLine());
-    return output;
-}
-
-void CreateArray(int[,] array)
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            array[i, j] = new Random().Next(range);
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+void FillArrayRandom(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 10);
+        }
+        Console.WriteLine();
+    }
+}*/
+
+int InputInt(string output)
+{
+    Console.Write(output);
+    return int.Parse(Console.ReadLine());
+}
+
+void FillArrayRandomNumbers(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = new Random().Next(1, 5);
         }
     }
 }
 
-void WriteArray(int[,] array)
+void PrintArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
+        Console.Write("[ ");
         for (int j = 0; j < array.GetLength(1); j++)
         {
             Console.Write(array[i, j] + " ");
         }
-        Console.WriteLine();
+        Console.Write("]");
+        Console.WriteLine("");
     }
 }
 
-Console.WriteLine($"Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.\n\nСразу зададим матрицу, которую можно перемножить, т.е. количество столбцов первой равно количеству строк второй");
-Console.WriteLine($"\nВведите размеры матриц и диапазон случайных значений:");
-int m = InputNumbers("Введите число строк 1-й матрицы: ");
-int n = InputNumbers("Введите число столбцов 1-й матрицы (и строк 2-й): ");
-int p = InputNumbers("Введите число столбцов 2-й матрицы: ");
-int range = InputNumbers("Введите диапазон случайных чисел: от 1 до ");
+int size = InputInt("размерность матриц: ");
+int[,] matrixA = new int[size, size];
+int[,] matrixB = new int[size, size];
+FillArrayRandomNumbers(matrixA);
+FillArrayRandomNumbers(matrixB);
+int[,] matrixC = new int[size, size];
 
-int[,] firstMartrix = new int[m, n];
-CreateArray(firstMartrix);
-Console.WriteLine($"\nПервая матрица:");
-WriteArray(firstMartrix);
-
-int[,] secomdMartrix = new int[n, p];
-CreateArray(secomdMartrix);
-Console.WriteLine($"\nВторая матрица:");
-WriteArray(secomdMartrix);
-
-int[,] resultMatrix = new int[m, p];
-
-MultiplyMatrix(firstMartrix, secomdMartrix, resultMatrix);
-Console.WriteLine($"\nПроизведение первой и второй матриц:");
-WriteArray(resultMatrix);
-
-void MultiplyMatrix(int[,] firstMartrix, int[,] secomdMartrix, int[,] resultMatrix)
+for (int i = 0; i < size; i++)
 {
-    for (int i = 0; i < resultMatrix.GetLength(0); i++)
+    for (int j = 0; j < size; j++)
     {
-        for (int j = 0; j < resultMatrix.GetLength(1); j++)
+        for (int k = 0; k < size; k++)
         {
-            int sum = 0;
-            for (int k = 0; k < firstMartrix.GetLength(1); k++)
-            {
-                sum += firstMartrix[i, k] * secomdMartrix[k, j];
-            }
-            resultMatrix[i, j] = sum;
+            matrixC[i, j] = matrixC[i, j] + (matrixA[i, k] * matrixB[k, j]);
         }
     }
 }
-
-int InputNumbers(string input)
-{
-    Console.Write(input);
-    int output = Convert.ToInt32(Console.ReadLine());
-    return output;
-}
-
-void CreateArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(range);
-        }
-    }
-}
-
-void WriteArray(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(array[i, j] + " ");
-        }
-        Console.WriteLine();
-    }
-}
+Console.WriteLine("Матрица - А");
+PrintArray(matrixA);
+Console.WriteLine();
+Console.WriteLine("Матрица - В");
+PrintArray(matrixB);
+Console.WriteLine();
+Console.WriteLine("Произведение матриц А*В");
+PrintArray(matrixC);
